@@ -1,0 +1,2 @@
+void _FMM3D(float *MODEL, float *TIME, bool *ACCEPTED, double *LAT, double *LON, double *H, int *TRACE, int N);
+void _SetModelSize(int _size_lat, int _size_lon, int _size_z, double _dlat, double _dlon, double _dz);
