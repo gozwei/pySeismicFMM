@@ -5,7 +5,7 @@ import os
 os.environ["CC"] = "g++"
 os.environ["CXX"] = "g++"
 
-module1 = Extension('FMM3D', sources = ['3DFMMmodule.cpp', '3DFMM.cpp']) #, extra_compile_args=['-fopenmp'], extra_link_args=['-lgomp']
+module1 = Extension('FMM3D', sources = ['3DFMMmodule.cpp', '3DFMM.cpp'], extra_compile_args=['-std=c++11']) #, extra_compile_args=['-fopenmp'], extra_link_args=['-lgomp']
 
 setup (name = 'FMM3D',
         version = '1.0',

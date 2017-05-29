@@ -1,3 +1,5 @@
 *.so
 build/
 __pycache__/
+priv*
+

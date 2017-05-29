@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <ctime>
 #include <queue>
+#include <chrono>
 
 #define pi 3.14159265358979323846
 
@@ -337,6 +338,11 @@ void _FMM3D(float *MODEL, float *TIME, bool *ACCEPTED, double *LAT, double *LON,
 	printf("C++ FMM start\n");
 	printf("C++ FMM model size: %d, %d, %d\n", size_lat, size_lon, size_z);
 	printf("C++ FMM grid size: %6.4f, %6.4f, %3.2f\n", dlat, dlon, dz);
+
+	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+    std::chrono::high_resolution_clock::time_point t2;// = std::chrono::high_resolution_clock::now();
+
+    
 	
 	std::priority_queue<NB, std::vector<NB>, CompareTime> narrow_band;
 	int lat, lon, z;
@@ -353,12 +359,17 @@ void _FMM3D(float *MODEL, float *TIME, bool *ACCEPTED, double *LAT, double *LON,
 	}
 	printf("done.\n");
 	
-	
+	const int debug_step = 1000000;
+
 	while (N > 0)
 	{
-		if (N % 100000 == 0)
+		if (N % debug_step == 0)
 		{
-			printf("C++ FMM %d\n", N);
+			t2 = std::chrono::high_resolution_clock::now();
+			auto duration = std::chrono::duration_cast<std::chrono::microseconds>( t2 - t1 ).count();
+			printf("C++ FMM %d (duration: %10.5fs\tgps:%10.5f)\n", N, (double)duration/1000000., ((double)debug_step/(double)duration)*1000000.);
+			//printf("C++ FMM %d \n", N);
+			t1 = std::chrono::high_resolution_clock::now();
 		}
 		if(narrow_band.size() == 0)
 		{
