@@ -53,5 +53,5 @@ print(myFMM.GetTimeGeo(51.232,21.0068,110))
 5. Calculating requires setting number of time steps (grid cells). This will be fixed to provide more friendly solution
 
 # More information
-1. This code was described in my PhD thesis (in polish): [http://marcinpolkowski.com/en/files/dyplom_phd.pdf]
-2. It was presented on few posters in Vienna (EGU) and San Francisco (AGU). Poster PDF are available on my website: [http://marcinpolkowski.com/en/]
+1. This code was described in my PhD thesis (in polish): [http://marcinpolkowski.com/files/dyplom_phd.pdf]
+2. It was presented on few posters in Vienna (EGU) and San Francisco (AGU). Poster PDF are available on my website: [http://marcinpolkowski.com/]
